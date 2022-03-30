@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.title) {
+    if (!req.body.nome) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -33,6 +33,7 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
     const nome = req.query.nome;
+    console.log("nome " + nome)
     var condition = nome ? { nome: { [Op.like]: `%${nome}%` } } : null;
     Prato.findAll({ where: condition })
         .then(data => {

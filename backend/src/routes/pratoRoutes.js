@@ -17,4 +17,4 @@ module.exports = app => {
     router.delete("/", pratos.deleteAll);
 
     app.use('/api/pratos', router);
-  };
+};
